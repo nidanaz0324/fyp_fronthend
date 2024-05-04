@@ -11,7 +11,7 @@ import { ProductService } from '../../shared/services/product.service';
 })
 export class BeautyComponent implements OnInit, OnDestroy {
 
-  public themeLogo: string = 'assets/images/icon/logo-7.png'; // Change Logo
+  public themeLogo: string = 'assets/images/icon/logo1.png'; // Change Logo
   public products: Product[] = [];
 
   public ProductSliderConfig: any = ProductSlider;
@@ -60,7 +60,7 @@ export class BeautyComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Change color for this layout
-    document.documentElement.style.setProperty('--theme-deafult', '#f0b54d');
+    document.documentElement.style.setProperty('--theme-deafult', '#2e2e82');
   }
 
   ngOnDestroy(): void {

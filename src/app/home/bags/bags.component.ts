@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductSlider, ProductOneSlider } from '../../shared/data/slider';
 import { Product } from '../../shared/classes/product';
-import { ProductService } from '../../shared/services/product.service';
+//import { ProductService } from '../../shared/services/product.service';
+import { ProductService} from '../../services/product.service';
 
 @Component({
   selector: 'app-bags',
@@ -10,8 +11,8 @@ import { ProductService } from '../../shared/services/product.service';
 })
 export class BagsComponent implements OnInit, OnDestroy {
 
-  public themeLogo: string = 'assets/images/icon/logo-7.png'; // Change Logo
-  public themeLogoWhite: string = 'assets/images/icon/logo-8.png'; // Change Logo
+  public themeLogo: string = 'assets/images/icon/logo1.png'; // Change Logo
+  public themeLogoWhite: string = 'assets/images/icon/logo1.png'; // Change Logo
 
   public products: Product[] = [];
   public productCollections: any[] = [];
@@ -21,15 +22,17 @@ export class BagsComponent implements OnInit, OnDestroy {
   public ProductSliderOneConfig: any = ProductOneSlider;
 
   constructor(public productService: ProductService) {
-    this.productService.getProducts.subscribe(response => {
-      this.products = response.filter(item => item.type == 'bags');
-      // Get Product Collection
-      this.products.filter((item) => {
-        item.collection.filter((collection) => {
-          const index = this.productCollections.indexOf(collection);
-          if (index === -1) this.productCollections.push(collection);
-        })
-      })
+    this.productService.getProducts().subscribe((response : any) => {
+      console.log(response);
+      this.products = response.data;
+      // this.products = response.filter(item => item.type == 'bags');
+      // // Get Product Collection
+      // this.products.filter((item) => {
+      //   item.collection.filter((collection) => {
+      //     const index = this.productCollections.indexOf(collection);
+      //     if (index === -1) this.productCollections.push(collection);
+      //   })
+      // })
     });
   }
 
@@ -76,7 +79,7 @@ export class BagsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // Change color for this layout
-    document.documentElement.style.setProperty('--theme-deafult', '#f0b54d');
+    document.documentElement.style.setProperty('--theme-deafult', '#2e2e82');
   }
 
   ngOnDestroy(): void {

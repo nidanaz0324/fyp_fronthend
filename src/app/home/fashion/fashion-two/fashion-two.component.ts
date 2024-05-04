@@ -10,7 +10,7 @@ import { ProductService } from '../../../shared/services/product.service';
 })
 export class FashionTwoComponent implements OnInit {
 
-  public themeLogo: string = 'assets/images/icon/logo-5.png'; // Change Logo
+  public themeLogo: string = 'assets/images/icon/logo1.png'; // Change Logo
 
   public products: Product[] = [];
   public productCollections: any[] = [];

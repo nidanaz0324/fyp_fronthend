@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { QuickViewComponent } from "../../modal/quick-view/quick-view.component";
 import { CartModalComponent } from "../../modal/cart-modal/cart-modal.component";
-import { Product } from "../../../classes/product";
-import { ProductService } from "../../../services/product.service";
+import { Product } from "../../../../model/product";
+import { ProductService } from "../../../../services/product.service";
 
 @Component({
   selector: 'app-product-box-five',
@@ -25,6 +25,7 @@ export class ProductBoxFiveComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    console.log(this.product);
   }
 
   // Get Product Color
@@ -57,15 +58,15 @@ export class ProductBoxFiveComponent implements OnInit {
   }
 
   addToCart(product: any) {
-    this.productService.addToCart(product);
+    // this.productService.addToCart(product);
   }
 
   addToWishlist(product: any) {
-    this.productService.addToWishlist(product);
+    // this.productService.addToWishlist(product);
   }
 
   addToCompare(product: any) {
-    this.productService.addToCompare(product);
+    // this.productService.addToCompare(product);
   }
 
 }

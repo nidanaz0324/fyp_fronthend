@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NewProductSlider } from '../../../data/slider';
-import { Product } from '../../../classes/product';
-import { ProductService } from '../../../services/product.service';
+import { Product } from '../../../../model/product';
+import { ProductService } from '../../../../services/product.service';
 
 @Component({
   selector: 'app-product-box-vertical-slider',
@@ -18,8 +18,8 @@ export class ProductBoxVerticalSliderComponent implements OnInit {
   public NewProductSliderConfig: any = NewProductSlider;
 
   constructor(public productService: ProductService) { 
-    this.productService.getProducts.subscribe(response => 
-      this.products = response.filter(item => item.type == this.type)
+    this.productService.getProducts().subscribe((response: any) => 
+      this.products = response.data//filter(item => item.type == this.type)
     );
   }
 

@@ -5,8 +5,10 @@
 export const environment = {
   production: false,
   stripe_token: 'STRIPE_TOKEN',
-  paypal_token: 'PAYPAL_TOKEN'
+  paypal_token: 'PAYPAL_TOKEN',
+  api_url: 'http://localhost/api/'
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
